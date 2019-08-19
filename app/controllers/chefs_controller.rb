@@ -3,9 +3,9 @@ class ChefsController < ApplicationController
     @chefs = Chef.all
   end
 
-  # def show
-  #   @chef = Chef.find(params[:id])
-  # end
+  def show
+    @chef = Chef.find(params[:id])
+  end
 
   # def new
   #   @chef = Chef.new

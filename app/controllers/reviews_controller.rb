@@ -13,4 +13,5 @@ class ReviewsController < ApplicationController
   private
   def review_params
     params.require(:review)
+  end
 end

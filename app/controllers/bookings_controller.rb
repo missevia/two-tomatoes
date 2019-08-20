@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.chef = @chef
     @booking.user = current_user
     if @booking.save
-      redirect_to root_path
+      redirect_to users_show_path
     else
       render :new
     end

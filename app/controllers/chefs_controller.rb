@@ -1,10 +1,11 @@
 class ChefsController < ApplicationController
+  before_action :set_chef, only: [:show, :edit, :update, :destroy]
+
   def index
     @chefs = policy_scope(Chef).order(created_at: :desc)
   end
 
   def show
-    authorize @restaurant
     @chef = Chef.find(params[:id])
   end
 
@@ -19,7 +20,9 @@ class ChefsController < ApplicationController
 
   def create
     @chef = Chef.new(chef_params)
+    @chef.user = current_user
     authorize @chef
+
     if @chef.save
       redirect_to chef_path(@chef)
     else
@@ -42,6 +45,7 @@ class ChefsController < ApplicationController
 
   def set_chef
     @chef = Chef.find(params[:id])
+    authorize @chef
   end
 
   def chef_params

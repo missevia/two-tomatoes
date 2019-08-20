@@ -1,21 +1,23 @@
 
 .banner {
-  background-color: #A6D498;
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%), url(https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  margin: 0;
 }
 
 .banner h1 {
   margin: 0;
-  color: #522A27;
+  color: rgb(230, 126, 34);
   font-size: 32px;
   font-family: sans-serif;
+  margin: 0;
 }
 
 .banner p {
   font-size: 20px;
-  color: #522A27;
+  color: rgb(230, 126, 34);
   font-family: 'Roboto', sans-serif;
 }
 
@@ -23,3 +25,7 @@
   background-color: white;
   height: 400px;
 }
+
+// body {
+//   margin: -16px;
+// }

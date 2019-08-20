@@ -16,8 +16,6 @@
   color: black;
   align-items: center;
   justify-content: space-around;
-}
-
 
 .card-review {
   overflow: hidden;
@@ -33,6 +31,11 @@
 
 #grid > div {
   background-color: white;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
 }
 
 // Smallest device

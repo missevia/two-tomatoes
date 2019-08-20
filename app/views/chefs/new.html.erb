@@ -1,0 +1,8 @@
+<h1>Chefs#new</h1>
+
+<%= simple_form_for @chef do |form| %>
+  <%= form.input :name %>
+  <%= form.input :description, as: :text %>
+  <%= form.input :specialty %>
+  <%= form.button :submit %>
+<% end %>

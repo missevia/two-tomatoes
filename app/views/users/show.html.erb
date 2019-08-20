@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>My Profile</h1>
+  <h2>Name: <%= @user.name %></h2>
+  <h2>E-Mail: <%= @user.email %></h2>
+  <ul>
+    <% @user.bookings.each do |booking| %>
+      <li>You booked <%= booking.chef %> for <%= booking.date %></li>
+    <% end %>
+  </ul>
+</div>
+

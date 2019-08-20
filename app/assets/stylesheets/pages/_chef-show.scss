@@ -1,0 +1,17 @@
+.container-show {
+  background-color: #9CB380;
+  height: 700px;
+  margin: 50px 200px;
+}
+
+.container-profile-details {
+  background-color: #fff;
+  height: 880px;
+  width: 500px;
+  float: right;
+  margin: 20px 20px 60px 0;
+  padding: 20px 10px 10px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

@@ -3,4 +3,20 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @chef = Chef.find(params[:chef_id])
   end
+
+  def create
+    @booking = Booking.new(booking_params)
+    @chef = Chef.find(params[:chef_id])
+    @booking.chef = @chef
+    @booking.user = current_user
+    if @booking.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+  def booking_params
+    params.require(:booking).permit(:number_of_people, :description, :preferences)
+  end
 end

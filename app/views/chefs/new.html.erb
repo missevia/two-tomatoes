@@ -1,0 +1,9 @@
+<h1>Chefs#new</h1>
+<p>Find me in app/views/chefs/new.html.erb</p>
+
+<%= simple_form_for [ chef ], url: new_chef_path, method: :post do |form| %>
+  <%= form.input :name %>
+  <%= form.input :description, as: :text %>
+  <%= form.input :specialty %>
+  <%= form.button :submit %>
+<% end %>

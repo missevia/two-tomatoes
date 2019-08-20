@@ -1,6 +1,7 @@
 class ChefsController < ApplicationController
   before_action :set_chef, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @chefs = policy_scope(Chef).order(created_at: :desc)
   end

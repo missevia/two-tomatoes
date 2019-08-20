@@ -1,1 +1,54 @@
-<h1><%= @chef.name %></h1>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag "" %>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Profile", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item dropdown">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Action", "#", class: "dropdown-item" %>
+          <%= link_to "Another action", "#", class: "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container-show col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+  <img class="avatar-large my-5 mx-5" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"/>
+      <%= link_to "Book", chefs_path, class: "btn btn-success rounded-pill" %>
+  <div class="container-profile-details">
+    <h3>Hi I'm <%= @chef.name %></h3>
+    <p>    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, error, dignissimos! Eligendi porro pariatur, consequatur, et a ipsa perspiciatis itaque dolorem, nostrum sunt sint harum deserunt fuga ducimus, assumenda tempora.</p>
+    <br>
+  <div class="reviews">
+    <h4>My Reviews</h4>
+      <br>
+    <div class="card-review">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam </p>
+    </div>
+    <div class="card-review">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam </p>
+    </div>
+    <div class="card-review">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam </p>
+    </div>
+    <div class="card-review">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam </p>
+    </div>
+  </div>
+</div>
+
+

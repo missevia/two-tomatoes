@@ -16,6 +16,17 @@
   color: black;
   align-items: center;
   justify-content: space-around;
+
+.card-review {
+  overflow: hidden;
+  height: 120px;
+  width: 300px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 12px;
 }
 
 #grid > div {

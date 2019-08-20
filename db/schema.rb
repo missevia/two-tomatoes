@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 2019_08_20_134302) do
     t.bigint "chef_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "date"
     t.integer "number_of_people"
     t.text "description"
     t.text "preferences"
+    t.datetime "date"
     t.index ["chef_id"], name: "index_bookings_on_chef_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

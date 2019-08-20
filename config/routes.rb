@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show, :destroy, :update] do
     resources :reviews, only: [:new, :create, :index, :show]
   end
-  get 'users/show', to: 'users#show'
+  
   resources :chefs do
     resources :bookings, only: [:create, :new]
   end

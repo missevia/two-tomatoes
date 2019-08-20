@@ -4,6 +4,10 @@ class BookingsController < ApplicationController
     @chef = Chef.find(params[:chef_id])
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @chef = Chef.find(params[:chef_id])

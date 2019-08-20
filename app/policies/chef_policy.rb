@@ -13,10 +13,6 @@ class ChefPolicy < ApplicationPolicy
     return true # Anyone can create a chef!
   end
 
-  def index?
-    return true
-  end
-
   def show?
     return true
   end
@@ -25,19 +21,19 @@ class ChefPolicy < ApplicationPolicy
     # Inside a policy?
     # 1. 'user' is the current_user
     # 2. 'record' is the argument passed to 'authorize' in Controller.
-    user_is_owner?
+    user_is_owner_or_admin?
   end
 
   def destroy?
     # 1st: only an admin
 
     # 2nd: the owner can destroy
-    record.user == user
+    user_is_owner_or_admin?
   end
 
   private
 
-  def user_is_owner?
-    record.user == user
+  def user_is_owner_or_admin?
+    record.user == user || user.admin
   end
 end

@@ -11,10 +11,20 @@
   width: 350px;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex !important;
+  flex-direction: row;
+  color: black;
+  align-items: center;
+  justify-content: space-around;
 }
 
 #grid > div {
   background-color: white;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
 }
 
 // Smallest device

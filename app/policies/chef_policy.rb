@@ -13,6 +13,10 @@ class ChefPolicy < ApplicationPolicy
     return true # Anyone can create a chef!
   end
 
+  def index?
+    return true
+  end
+
   def show?
     return true
   end

@@ -30,16 +30,17 @@ class ChefsController < ApplicationController
     end
   end
 
-  # def update
-  #   @chef = Chef.find(params[:id])
-  #   @chef.update(chef_params)
-  # end
+  def update
+    @chef = Chef.find(params[:id])
+    @chef.update(chef_params)
+  end
 
-  # def destroy
-  #   @chef = chef.find(params[:id])
-  #   @chef.destroy
-  #   redirect_to chefs_path
-  # end
+  def destroy
+    @chef = chef.find(params[:id])
+    authorize @chef
+    @chef.destroy
+    redirect_to chefs_path
+  end
 
   private
 

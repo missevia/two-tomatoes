@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @chef = Chef.find(params[:chef_id])
     authorize @booking
   end
 
@@ -20,14 +21,12 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user = current_user
     authorize @booking
-    #@chef = Chef.find(params[:chef_id])
-    #@booking.chef = @chef
-    #@booking.user = current_user
+    @chef = Chef.find(params[:chef_id])
+    @booking.chef = @chef
+    @booking.user = current_user
     if @booking.save
-      #redirect_to users_show_path
-      redirect_to booking_path(@booking)
+      redirect_to users_show_path
     else
       render :new
     end
@@ -53,6 +52,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:number_of_people, :description, :preferences, :name, :specialty, :rating)
+    params.require(:booking).permit(:number_of_people, :description, :preferences)
   end
 end

@@ -17,6 +17,10 @@ class ChefPolicy < ApplicationPolicy
     return true
   end
 
+  def index?
+    return true
+  end
+
   def update?
     # Inside a policy?
     # 1. 'user' is the current_user

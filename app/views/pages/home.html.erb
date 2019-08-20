@@ -9,6 +9,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <% if !current_user || current_user&.chef == false %>
+        <li class="nav-item">
+          <%= link_to "Become a Chef", new_chef_path, class: "nav-link" %>
+        </li>
+      <% else %>
+      <% end %>
       <li class="nav-item active">
         <%= link_to "Home", "#", class: "nav-link" %>
       </li>

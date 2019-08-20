@@ -1,1 +1,10 @@
-<h1>new</h1>
+<h1 class = "booking-title">Let's get cooking</h1>
+
+<div class="booking-form">
+  <%= simple_form_for [@chef, @booking] do |f| %>
+    <%= f.input :number_of_people, label: 'How big is your party? Enter a number.' %>
+    <%= f.input :preferences, label: 'Any allergies? Let us know!' %>
+    <%= f.input :description, label: 'Please describe your wishes in as much detail as you like.'%>
+    <%= f.button :submit, class: "my-button" %>
+  <% end %>
+</div>

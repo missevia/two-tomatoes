@@ -39,7 +39,8 @@
   <img class="avatar mx-3 my-3" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"/>
 
   <div class="card-details">
-    <p><%= chef.name %></p>
+    <p><strong><%= chef.name %></strong></p>
+    <p><%= chef.specialty %></p>
     <div class="rating d-flex flex-row">
      <% chef.rating.to_i.times do %>
     <i class="fas fa-star"> </i>

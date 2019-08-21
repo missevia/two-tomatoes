@@ -6,6 +6,10 @@
   justify-items: center;
 }
 
+.cards p {
+  width: 193px;
+}
+
 .card {
   height: 120px;
   width: 350px;
@@ -18,7 +22,7 @@
   justify-content: space-around;
 }
 
-p { width: 193px; }
+
 
 .card-review {
   overflow: hidden;

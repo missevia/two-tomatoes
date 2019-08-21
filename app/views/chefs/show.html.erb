@@ -27,7 +27,7 @@
 </div>
 
 <div class="container-show col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-  <img class="avatar-large my-5 mx-5" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"/>
+  <img class="avatar-large my-5 mx-5" alt="avatar-large" src=" <%= @chef.user.image %> "/>
       <%= link_to "Book", new_chef_booking_path(@chef), class: "btn btn-success rounded-pill" %>
   <div class="container-profile-details">
     <h3>Hi I'm <%= @chef.name %></h3>

@@ -56,26 +56,35 @@
       </div>
     </div>
 
+s
 
 
 
 
 
     <%= yield %>
-    <p class="notice notice-color"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
-    <div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This website was made with <i class="fas fa-heart"></i> by Ecopal Team
-  </div>
-</div>
+    <% if params[:controller] == "chefs" && params[:action] == "show" %>
+      <div></div>
+    <% else %>
+      <p class="notice notice-color"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
+      <div class="footer">
+        <div class="footer-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="footer-copyright">
+          This website was made with <i class="fas fa-heart"></i> by Ecopal Team
+        </div>
+      </div>
+    <% end %>
+
+
+
+
 
   </body>
 </html>

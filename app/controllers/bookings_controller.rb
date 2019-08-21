@@ -26,6 +26,7 @@ class BookingsController < ApplicationController
     @booking.chef = @chef
     @booking.user = current_user
     if @booking.save
+      flash[:notice] = "Congratulations! You booked #{@chef.name}"
       redirect_to users_show_path
     else
       render :new

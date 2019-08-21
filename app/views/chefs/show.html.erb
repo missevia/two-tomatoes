@@ -5,7 +5,7 @@
       <%= link_to "Book", new_chef_booking_path(@chef), class: "btn btn-success rounded-pill" %>
   <div class="container-profile-details">
     <h3>Hi I'm <%= @chef.name %></h3>
-    <p>    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, error, dignissimos! Eligendi porro pariatur, consequatur, et a ipsa perspiciatis itaque dolorem, nostrum sunt sint harum deserunt fuga ducimus, assumenda tempora.</p>
+    <p> <%= @chef.description %></p>
     <br>
   <div class="reviews">
     <h4>My Reviews</h4>

@@ -7,6 +7,7 @@
 }
 
 .cards p {
+  margin-top: 8px;
   width: 193px;
 }
 
@@ -26,11 +27,11 @@
 
 .card-review {
   overflow: hidden;
-  height: 120px;
-  width: 300px;
+  height: auto;
+  width: 340px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
+
   align-items: center;
   padding: 10px;
   margin-bottom: 12px;

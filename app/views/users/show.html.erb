@@ -2,7 +2,7 @@
   <h3><%= current_user.name %>'s bookings</h3>
    <% @user.bookings.each do |booking| %>
       <div class="card" id = "booking-card"><%= booking.chef.name %>
-      <img class="avatar mx-3 my-3" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"/> </div>
+      <img class="avatar mx-3 my-3" alt="avatar-large" src= <%= booking.chef.user.image %>> </div>
     <% end %>
 </div>
 

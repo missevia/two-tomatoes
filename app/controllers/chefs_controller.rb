@@ -4,6 +4,11 @@ class ChefsController < ApplicationController
 
   def index
     @chefs = policy_scope(Chef).order(created_at: :desc)
+    if params[:query].present?
+    @results = Chef.search_by_specialty(params[:query])
+    else
+      @results = Chef.all
+    end
   end
 
   def show

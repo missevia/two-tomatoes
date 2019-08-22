@@ -28,7 +28,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <% if !current_user || current_user&.chef == false %>
+          <% if !current_user || current_user.chef.nil? %>
             <li class="nav-item">
               <%= link_to "Become a Chef", new_chef_path, class: "nav-link" %>
             </li>
@@ -40,6 +40,13 @@
           <li class="nav-item">
             <%= link_to "Profile", users_show_path(current_user), class: "nav-link" %>
           </li>
+          <% if current_user %>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </li>
+          <% else %>
+          <% end %>
+
           <li class="nav-item dropdown">
             <% if current_user && current_user.image %>
               <%= image_tag current_user.image, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

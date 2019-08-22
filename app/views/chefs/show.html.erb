@@ -41,4 +41,25 @@
   </div>
 </div>
 
-
+      <div>
+        <p><strong>Reviews</strong></p>
+        <% @bookings.each do |booking|%>
+        <ul class="list-inline">
+          <% booking.reviews.each do |review|%>
+            <li class="list-unstyled">
+            <div class="review-chat">
+              <div class="review-comment">
+                <% review.rating.times do %>
+                <i class="fa fa-star" aria-hidden="true" ></i>
+                <% end %>
+                <% (5- review.rating).times do %>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                <% end %>
+                <p> <%= review.content %> </p>
+              </div>
+            </div>
+            </li>
+            <% end %>
+         </ul>
+       <% end %>
+     </div>

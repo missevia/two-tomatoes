@@ -1,27 +1,28 @@
 
-<div id="search-bar">
-  <%= form_tag chefs_path, class: "form-inline md-form m-auto mb-4 chef-search" , method: :get do %>
-    <span><%= text_field_tag :query, params[:query], class: "form-control mr-sm-2" %><%= submit_tag "Search", name: nil, class: "btn btn-outline-warning btn-rounded btn-sm my-0"  %></span>
-  <% end %>
-</div>
-
-
-<div class="cards" id="grid">
-  <% @results.each do |result| %>
-  <div class="card">
-  <img class="avatar mx-3 my-3" alt="avatar-large" src="<%= result.user.image %>"/>
-
-  <div class="card-details">
-    <p><strong><%= result.name %></strong></p>
-    <p><%= result.specialty %></p>
-    <div class="rating d-flex flex-row">
-     <% result.rating.to_i.times do %>
-    <i class="fas fa-star"> </i>
+<div class="chef-index">
+  <div id="search-bar">
+    <%= form_tag chefs_path, class: "form-inline md-form m-auto mb-4 chef-search" , method: :get do %>
+      <span><%= text_field_tag :query, params[:query], class: "form-control mr-sm-2" %><%= submit_tag "Search", name: nil, class: "btn btn-outline-warning btn-rounded btn-sm my-0"  %></span>
     <% end %>
-    </div>
   </div>
-  <%= link_to "see more", chef_path(result), class: "nav-link align-self-end" %>
-  </div>
-  <% end %>
-</div>
 
+
+  <div class="cards" id="grid">
+    <% @results.each do |result| %>
+    <div class="card">
+    <img class="avatar mx-3 my-3" alt="avatar-large" src="<%= result.user.image %>"/>
+
+    <div class="card-details">
+      <p><strong><%= result.name %></strong></p>
+      <p><%= result.specialty %></p>
+      <div class="rating d-flex flex-row">
+       <% result.rating.to_i.times do %>
+      <i class="fas fa-star"> </i>
+      <% end %>
+      </div>
+    </div>
+    <%= link_to "see more", chef_path(result), class: "nav-link align-self-end" %>
+    </div>
+    <% end %>
+  </div>
+</div>

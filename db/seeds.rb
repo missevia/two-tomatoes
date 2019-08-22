@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'date'
 require 'faker'
 
 puts 'Cleaning database...'
@@ -25,6 +26,64 @@ puts 'Creating 20 random users...'
 
   )
 end
+
+first_review_user = User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 8),
+    image: "https://images.unsplash.com/photo-1517810095498-0f282469aba9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+  )
+
+second_review_user = User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 8),
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+  )
+
+third_review_user = User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 8),
+    image: "https://images.unsplash.com/photo-1513732822839-24f03a92f633?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+  )
+
+fourth_review_user = User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 8),
+    image: "https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+  )
+
+fifth_review_user = User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 8),
+    image: "https://images.unsplash.com/photo-1531251445707-1f000e1e87d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+  )
+
+sixth_review_user = User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 8),
+    image: "https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+  )
+
+seventh_review_user = User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 8),
+    image: "https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+  )
+
+eighth_review_user = User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 8),
+    image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+  )
+
+
 
 puts 'Created 20 random users.'
 
@@ -71,8 +130,20 @@ moritz = User.create!(
 
 puts 'Created "Lila", "Evia", "Ahmad" and "Moritz"'
 
+@review_users = [first_review_user, second_review_user, third_review_user, fourth_review_user, fifth_review_user, sixth_review_user, seventh_review_user, eighth_review_user, evia, lila, moritz, ahmad]
 
 puts 'Creating 2 random chefs with raiting 3...'
+
+def create_reviews(chef)
+  number = rand(1..7)
+  number.times do
+    review_user = @review_users.sample
+    booking = Booking.create(user: review_user, chef: chef, date: (Date.new(2019,8,(20 - number))), number_of_people: (number + 2), description: (Faker::Movies::StarWars.quote), preferences: (Faker::Movies::StarWars.quote))
+    Review.create(booking: booking, rating: rand(4..5), content: (Faker::Restaurant.review))
+  end
+end
+
+# 1
 
 first_new_user = User.create!(
     name: Faker::Name.name,
@@ -80,13 +151,18 @@ first_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://images.unsplash.com/photo-1559575003-fb4ee38a747d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60"
   )
-Chef.create!(
+first_chef = Chef.create!(
     name: first_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 3,
     description: Faker::Movies::StarWars.quote,
-    user: first_new_user
+    user: first_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(first_chef)
+
+# 2
 
 second_new_user = User.create!(
     name: Faker::Name.name,
@@ -94,18 +170,23 @@ second_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://images.unsplash.com/photo-1543965170-e3d16958f280?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
   )
-Chef.create!(
+second_chef = Chef.create!(
     name: second_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 3,
     description: Faker::Movies::StarWars.quote,
-    user: second_new_user
+    user: second_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(second_chef)
 
 puts 'Created 2 random chefs with raiting 3.'
 
 
 puts 'Creating 6 random chefs with raiting 4...'
+
+# 3
 
 third_new_user = User.create!(
     name: Faker::Name.name,
@@ -113,13 +194,18 @@ third_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://images.unsplash.com/photo-1558549900-c11cb6293fb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
   )
-Chef.create!(
+third_chef = Chef.create!(
     name: third_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 4,
     description: Faker::Movies::StarWars.quote,
-    user: third_new_user
+    user: third_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(third_chef)
+
+# 4
 
 fourth_new_user = User.create!(
     name: Faker::Name.name,
@@ -127,13 +213,17 @@ fourth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://images.unsplash.com/photo-1548612621-77df2f2c5246?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
   )
-Chef.create!(
+fourth_chef = Chef.create!(
     name: fourth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 4,
     description: Faker::Movies::StarWars.quote,
-    user: fourth_new_user
+    user: fourth_new_user,
+    price: rand(50..200)
   )
+create_reviews(fourth_chef)
+
+# 5
 
 fifth_new_user = User.create!(
     name: Faker::Name.name,
@@ -141,13 +231,18 @@ fifth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://images.unsplash.com/photo-1543716627-839b54c40519?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
   )
-Chef.create!(
+fifth_chef = Chef.create!(
     name: fifth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 4,
     description: Faker::Movies::StarWars.quote,
-    user: fifth_new_user
+    user: fifth_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(fifth_chef)
+
+# 6
 
 sixth_new_user = User.create!(
     name: Faker::Name.name,
@@ -155,13 +250,15 @@ sixth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://images.unsplash.com/photo-1554454188-f84071b1695f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
   )
-Chef.create!(
+sixth_chef = Chef.create!(
     name: sixth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 4,
     description: Faker::Movies::StarWars.quote,
-    user: sixth_new_user
+    user: sixth_new_user,
+    price: rand(50..200)
   )
+create_reviews(sixth_chef)
 
 seventh_new_user = User.create!(
     name: Faker::Name.name,
@@ -169,13 +266,18 @@ seventh_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://images.unsplash.com/photo-1541881856704-3c4b2896c0f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
   )
-Chef.create!(
+seventh_chef = Chef.create!(
     name: seventh_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 4,
     description: Faker::Movies::StarWars.quote,
-    user: seventh_new_user
+    user: seventh_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(seventh_chef)
+
+# 8
 
 eighth_new_user = User.create!(
     name: Faker::Name.name,
@@ -183,15 +285,20 @@ eighth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://www.jonathanthompsonphotography.com/wp-content/uploads/2017/11/Chef-Robin-Gill-Portrait-Art-Culinaire-Magazine-The-Dairy-Clapham.jpg"
   )
-Chef.create!(
+eighth_chef = Chef.create!(
     name: eighth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 4,
     description: Faker::Movies::StarWars.quote,
-    user: eighth_new_user
+    user: eighth_new_user,
+    price: rand(50..200)
   )
 
+create_reviews(eighth_chef)
+
 puts 'Creating 8 random chefs with raiting 5...'
+
+# 9
 
 ninth_new_user = User.create!(
     name: Faker::Name.name,
@@ -199,13 +306,18 @@ ninth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://images.squarespace-cdn.com/content/v1/51c1efe0e4b0b485e9579892/1499801828045-PO3BV52DW4XS7RCLAYPQ/ke17ZwdGBToddI8pDm48kHbyMxtMNNSCtlLRHoG2ASBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpy5UPpduxhVJIDdv7lJzsCRfvUqmx_TfFp0yF9Kyrkhn0sa9CUmR1X55pFtwATNAbI/Chefs_2_08.jpg"
   )
-Chef.create!(
+ninth_chef = Chef.create!(
     name: ninth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 5,
     description: Faker::Movies::StarWars.quote,
-    user: ninth_new_user
+    user: ninth_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(ninth_chef)
+
+#10
 
 tenth_new_user = User.create!(
     name: Faker::Name.name,
@@ -213,13 +325,18 @@ tenth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOcaHWHItqlFoTcqq1swgU2gAZ_Qeu4tsbxwq8iyBvuN6g5IMcTQ"
   )
-Chef.create!(
+tenth_chef = Chef.create!(
     name: tenth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 5,
     description: Faker::Movies::StarWars.quote,
-    user: tenth_new_user
+    user: tenth_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(tenth_chef)
+
+# 11
 
 eleventh_new_user = User.create!(
     name: Faker::Name.name,
@@ -227,13 +344,18 @@ eleventh_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9oaezcIsqyHzbIucztSemtoJejBgzjO8HTLHzVX6seM3BlgbuFQ"
   )
-Chef.create!(
+eleventh_chef = Chef.create!(
     name: eleventh_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 5,
     description: Faker::Movies::StarWars.quote,
-    user: eleventh_new_user
+    user: eleventh_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(eleventh_chef)
+
+# 12
 
 twelfth_new_user = User.create!(
     name: Faker::Name.name,
@@ -241,13 +363,18 @@ twelfth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ67L-yqNEzWz1o3JFOHhyNfr5TNLw5lmas0y-zktowAwVK-ud"
   )
-Chef.create!(
+twelfth_chef = Chef.create!(
     name: twelfth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 5,
     description: Faker::Movies::StarWars.quote,
-    user: twelfth_new_user
+    user: twelfth_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(twelfth_chef)
+
+#13
 
 thirteenth_new_user = User.create!(
     name: Faker::Name.name,
@@ -255,13 +382,18 @@ thirteenth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9M29A2YvnPf9ou7Rbl2Ou4fU2wC4EdengV7cFNjqfLaSzjRjc8Q"
   )
-Chef.create!(
+thirteenth_chef = Chef.create!(
     name: thirteenth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 5,
     description: Faker::Movies::StarWars.quote,
-    user: thirteenth_new_user
+    user: thirteenth_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(thirteenth_chef)
+
+#14
 
 fourteenth_new_user = User.create!(
     name: Faker::Name.name,
@@ -269,13 +401,18 @@ fourteenth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNEPkigsDDTnTQ8EalML7M6FOW-OAy7E3_1IL7lAA-aXq9Zi8vJQ"
   )
-Chef.create!(
+fourteenth_chef = Chef.create!(
     name: fourteenth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 5,
     description: Faker::Movies::StarWars.quote,
-    user: fourteenth_new_user
+    user: fourteenth_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(fourteenth_chef)
+
+# 15
 
 fifteenth_new_user = User.create!(
     name: Faker::Name.name,
@@ -283,13 +420,18 @@ fifteenth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTykb3SPxYcgPkjZj5eWvqzS1w6i163HSL6u1Emj69WGQsLqxeo"
   )
-Chef.create!(
+fifteenth_chef = Chef.create!(
     name: fifteenth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 5,
     description: Faker::Movies::StarWars.quote,
-    user: fifteenth_new_user
+    user: fifteenth_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(fifteenth_chef)
+
+# 16
 
 sixteenth_new_user = User.create!(
     name: Faker::Name.name,
@@ -297,13 +439,18 @@ sixteenth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc-X_k8QAioP6Zc76d49iSi29610veCAMXanq3AXHbsQ2BS_sA"
   )
-Chef.create!(
+sixteenth_chef = Chef.create!(
     name: sixteenth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 5,
     description: Faker::Movies::StarWars.quote,
-    user: sixteenth_new_user
+    user: sixteenth_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(sixteenth_chef)
+
+# 17
 
 seventeenth_new_user = User.create!(
     name: Faker::Name.name,
@@ -311,13 +458,18 @@ seventeenth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ54oPwjOQmU-9oHoRoxayMUj_pYvjB017q16Mfr3noyXuMR1bQ"
   )
-Chef.create!(
+seventeenth_chef = Chef.create!(
     name: seventeenth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 5,
     description: Faker::Movies::StarWars.quote,
-    user: seventeenth_new_user
+    user: seventeenth_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(seventeenth_chef)
+
+# 18
 
 eighteenth_new_user = User.create!(
     name: Faker::Name.name,
@@ -325,13 +477,16 @@ eighteenth_new_user = User.create!(
     password: Faker::Internet.password(min_length: 8),
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQwEaUIULozAdUA8v1-Npf6im-aiAMftesNmiVW3W0VpBeINKZmA"
   )
-Chef.create!(
+eighteenth_chef = Chef.create!(
     name: eighteenth_new_user.name,
     specialty: Faker::Restaurant.type,
     rating: 5,
     description: Faker::Movies::StarWars.quote,
-    user: eighteenth_new_user
+    user: eighteenth_new_user,
+    price: rand(50..200)
   )
+
+create_reviews(eighteenth_chef)
 
 puts 'Created 8 random chefs with raiting 5.'
 

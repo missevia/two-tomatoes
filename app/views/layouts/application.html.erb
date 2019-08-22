@@ -55,11 +55,6 @@
                 <%= link_to "Another action", "#", class: "dropdown-item" %>
             <% else %>
             <% end %>
-
-
-
-
-
             </div>
           </li>
         </ul>
@@ -72,6 +67,7 @@
 
 
     <%= yield %>
+
     <% if params[:controller] == "chefs" && params[:action] == "show" %>
       <div></div>
     <% else %>
@@ -90,7 +86,6 @@
         </div>
       </div>
     <% end %>
-
 
 
 

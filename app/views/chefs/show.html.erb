@@ -1,44 +1,28 @@
-
-
-<div class="container-show col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-  <img class="avatar-large my-5 mx-5" alt="avatar-large" src=" <%= @chef.user.image %> "/>
-      <%= link_to "Book", new_chef_booking_path(@chef), class: "btn btn-success rounded-pill" %>
+<div class="container-show">
+  <div class="chef-user d-flex align-items-center flex-column mx-3">
+    <img class="avatar-large" alt="avatar-large" src=" <%= @chef.user.image %> "/>
+    <%= link_to "Book", new_chef_booking_path(@chef), class: "btn btn-success rounded-pill mb-4" %>
+  </div>
   <div class="container-profile-details">
-    <h3>Hi I'm <%= @chef.name %></h3>
-    <p> <%= @chef.description %></p>
+    <h3 class="ml-3 my-3">Hi I'm <%= @chef.name %></h3>
+    <p class="ml-3 my-3"> <%= @chef.description %></p>
     <br>
-  <div class="reviews">
+  <div class="reviews ml-3 my-3">
     <h4>My Reviews</h4>
       <br>
-    <div class="card-review">
-      <div>
-        <img class="avatar-square" src="https://images.unsplash.com/photo-1439911767590-c724b615299d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
-        <strong>Rating: 4</strong>
-      </div>
-      <p>The process from start to finish was simple and straightforward. Our chef, was punctual, polite and professional. Not only did the chef make a delicious meal and serve it to us, the chef also kept our 2 young children entertained. </p>
-    </div>
-    <div class="card-review">
-      <div>
-        <img class="avatar-square" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
-        <strong>Rating: 5</strong>
-      </div>
-      <p>What an incredible experience! The Chef was absolutely outstanding in every regard. Flexible and accommodating with regards to menu adjustments, relaxed when it came to the timing of service (our friends were running late) and brilliantly professional. </p>
-    </div>
-    <div class="card-review">
-      <div>
-        <img class="avatar-square" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
-        <strong>Rating: 5</strong>
-      </div>
-      <p>A fantastic event from start to finish. Planning was excellent (menu customised to match the chosen wines), inclusion of extra course and vegetarian options to cleanliness of kitchen post-event.  </p>
-    </div>
-    <div class="card-review">
-      <div>
-        <img class="avatar-square" src="https://images.unsplash.com/photo-1450297350677-623de575f31c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
-        <strong>Rating: 5</strong>
-      </div>
-      <p>Did a fantastic job - the food was fantastic and the overall service and experience exceptional!</p>
-    </div>
+      <% @bookings.each do |booking|%>
+        <% booking.reviews.each do |review|%>
+        <div class="card-review">
+          <div>
+            <img class="avatar-square" src="<%= review.user.image %>" alt="user image">
+            <strong>Rating:</strong>
+            <% review.rating.times do %>
+             <i class="fa fa-star" aria-hidden="true" ></i>
+            <% end %>
+          </div>
+          <p> <%= review.content %> </p>
+        </div>
+        <% end %>
+      <% end %>
   </div>
 </div>
-
-

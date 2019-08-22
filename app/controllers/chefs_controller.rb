@@ -59,6 +59,6 @@ class ChefsController < ApplicationController
   end
 
   def chef_params
-    params.require(:chef).permit(:name, :specialty, :rating, :description)
+    params.require(:chef).permit(:name, :specialty, :rating, :description, :price)
   end
 end

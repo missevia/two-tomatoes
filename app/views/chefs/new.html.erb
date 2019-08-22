@@ -1,8 +1,15 @@
-<h1>Chefs#new</h1>
+<div class="become-chef-page">
+  <div><h1 class = "title-become-chef">Become a Chef</h1></div>
 
-<%= simple_form_for @chef do |form| %>
-  <%= form.input :name %>
-  <%= form.input :description, as: :text %>
-  <%= form.input :specialty %>
-  <%= form.button :submit %>
-<% end %>
+  <div class="chef-form">
+    <%= simple_form_for @chef, wrapper: :vertical_form do |form| %>
+      <%= form.input :name, placeholder: 'What\'s your name, stranger?', label: false, input_html: { class: "chef-input"}  %>
+      <%= form.input :description, as: :text, placeholder: 'Tell us a bit about yourself', label: false, input_html: { class: "chef-input"} %>
+      <%= form.input :specialty, placeholder: 'What\'s your specialty?' , label: false, input_html: { class: "chef-input"} %>
+      <%= form.input :price, placeholder: 'Enter your hourly rate in British pounds', label: false, input_html: { class: "chef-input"} %>
+      </div>
+      <div class = 'chef-btn'>
+          <%= form.button :submit, "I'm a chef!", class: "btn-primary" %>
+        </div>
+    <% end %>
+</div>

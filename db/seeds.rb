@@ -28,6 +28,50 @@ end
 
 puts 'Created 20 random users.'
 
+puts 'Creating user "Justin". Email: justin@mail.com; pw: 654321...'
+
+justin = User.create!(
+  name: "Justin",
+  email: "justin@mail.com",
+  password: "654321",
+  image: "https://regmedia.co.uk/2017/08/29/shutterstock_bitcoin.jpg?x=442&y=293&crop=1"
+)
+
+puts 'Created Justin'
+
+puts 'Creating users "Lila", "Evia", "Ahmad" and "Moritz". For each user Email: NAME@mail.com; pw: 654321...'
+
+lila = User.create!(
+  name: "Lila",
+  email: "lila@mail.com",
+  password: "654321",
+  image: "https://media.licdn.com/dms/image/C4D03AQHdVHM4w0BcWQ/profile-displayphoto-shrink_800_800/0?e=1571875200&v=beta&t=f2MWy86MWC_-744stDXsk61lcfxak7BUAwIArJ_Tw_M"
+)
+
+evia = User.create!(
+  name: "Evia",
+  email: "evia@mail.com",
+  password: "654321",
+  image: "https://media.licdn.com/dms/image/C5603AQHTICoQhwGqLQ/profile-displayphoto-shrink_800_800/0?e=1571875200&v=beta&t=V8Cl6Ehq9N9u6UqgEMNjLTrULvXcN9xunKr7HujF9RA"
+)
+
+ahmad = User.create!(
+  name: "Ahmad",
+  email: "ahmad@mail.com",
+  password: "654321",
+  image: "https://media.licdn.com/dms/image/C5603AQEtT7Jj-y0DUg/profile-displayphoto-shrink_800_800/0?e=1571875200&v=beta&t=DiiHmfRPAMocHGh_Zqrrf4w6vL_PABoXndUO1acCrAk"
+)
+
+moritz = User.create!(
+  name: "Moritz",
+  email: "moritz@mail.com",
+  password: "654321",
+  image: "https://lindenpartners.eu/wp-content/uploads/2015/03/indenhuck-author.jpg"
+)
+
+puts 'Created "Lila", "Evia", "Ahmad" and "Moritz"'
+
+
 puts 'Creating 2 random chefs with raiting 3...'
 
 first_new_user = User.create!(

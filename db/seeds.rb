@@ -138,8 +138,8 @@ def create_reviews(chef)
   number = rand(1..7)
   number.times do
     review_user = @review_users.sample
-    booking = Booking.create(user: review_user, chef: chef, date: (Date.new(2019,8,(20 - number))), number_of_people: (number + 2), description: (Faker::Movies::StarWars.quote), preferences: (Faker::Movies::StarWars.quote))
-    Review.create(booking: booking, rating: rand(4..5), content: (Faker::Restaurant.review))
+    booking = Booking.create!(user: review_user, chef: chef, date: (Date.new(2019,8,(20 - number))), number_of_people: (number + 2), description: (Faker::Movies::StarWars.quote), preferences: (Faker::Movies::StarWars.quote))
+    Review.create!(user: review_user, booking: booking, rating: rand(4..5), content: (Faker::Restaurant.review))
   end
 end
 

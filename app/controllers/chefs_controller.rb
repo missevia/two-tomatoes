@@ -8,6 +8,9 @@ class ChefsController < ApplicationController
 
   def show
     @chef = Chef.find(params[:id])
+    @reviews = Review.all
+    @bookings = @chef.bookings
+    #@chef.reviews = @chef
   end
 
   def new

@@ -6,6 +6,7 @@
   padding: 20px;
   max-width: 850px;
   justify-content: space-around;
+  color: #696969;
 
   @media only screen and (max-width: 992px)  {
     margin: 50px 150px;
@@ -30,6 +31,7 @@
   flex-direction: column;
   justify-content: flex-start;
   overflow: scroll;
+  color: #696969;
 
   @media only screen and (max-width: 768px)  {
   width: 100%;

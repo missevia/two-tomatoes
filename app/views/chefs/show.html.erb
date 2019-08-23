@@ -2,7 +2,7 @@
 <div class="container-show">
   <div class="chef-user d-flex align-items-center flex-column mx-3">
     <img class="avatar-large" alt="avatar-large" src=" <%= @chef.user.image %> "/>
-    <%= link_to "Book", new_chef_booking_path(@chef), class: "btn btn-outline-light btn-rounded btn-sm my-0 btn-search px-4" %>
+    <%= link_to "book", new_chef_booking_path(@chef), class: "btn-primary", id: "btn-chef-show" %>
   </div>
   <div class="container-profile-details">
     <h4 class="ml-3 my-3">Hi I'm <%= @chef.name %></h4>

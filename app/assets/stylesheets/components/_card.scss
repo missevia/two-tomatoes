@@ -4,12 +4,6 @@
   grid-gap: 20px 10px;
   margin: 40px 30px;
   justify-items: center;
-
-}
-
-.chefs-index-cards {
-  padding: 20px !important;
-  margin: 0px 30px !important;
 }
 
 .cards p {
@@ -19,15 +13,17 @@
 }
 
 .card {
-  height: 120px;
-  width: 350px;
+  height: 140px;
+  width: 380px;
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 1.5rem 4rem rgba(black, .15);
   display: flex !important;
   flex-direction: row;
   color: black;
   align-items: center;
   justify-content: space-around;
+  padding: 12px;
+  transition: 0.4s;
 }
 
 
@@ -35,7 +31,7 @@
 .card-review {
   overflow: hidden;
   height: auto;
-  width: 340px;
+  width: 350px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
@@ -51,12 +47,43 @@
 .card-details {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
+
+  @media (min-width: 100px) and (max-width: 575px) {
+    text-align: center;
+  }
+}
+
+.see-more-btn {
+  display: flex;
+  margin-right: 15px;
+  margin-top: 60px;
+
+  @media (min-width: 100px) and (max-width: 575px) {
+    margin-right: 120px;
+  }
+}
+
+.card:hover {
+  -webkit-transform: translateY(-0.6rem) scale(1.01);
+  transform: translateY(-0.4rem) scale(1.01);
+  }
+
+.rating {
+  color: rgb(234, 112, 112);
+
+  @media (min-width: 100px) and (max-width: 575px) {
+    margin-left: 55px;
+  }
 }
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
+  }
+  .card {
+    width: 100%;
   }
 }
 
@@ -65,6 +92,7 @@
   .cards {
     grid-template-columns: 1fr;
   }
+
 }
 
 // Medium devices (tablets, 768px and up)

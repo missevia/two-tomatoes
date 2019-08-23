@@ -6,10 +6,10 @@ class ChefsController < ApplicationController
     @chefs = policy_scope(Chef).order(created_at: :desc)
     if params[:query].present?
       @results = Chef.search_by_specialty(params[:query])
-      if @results.empty?
-        @empty_results
-        @results = Chef.all
-      end
+        if @results.empty?
+          @empty_results = true
+          @results = Chef.all
+        end
     else
       @results = Chef.all
     end

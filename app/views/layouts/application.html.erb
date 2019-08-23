@@ -65,9 +65,7 @@
 
     <%= yield %>
 
-    <% if params[:controller] == "chefs" && params[:action] == "show" %>
-      <div></div>
-    <% else %>
+
 <!--       <p class="notice notice-color"><%= notice %></p> -->
       <!-- <p class="alert"><%= alert %></p> -->
       <%= javascript_include_tag 'application' %>
@@ -82,7 +80,7 @@
           This website was made with <i class="fas fa-heart"></i> by Ecopal Team
         </div>
       </div>
-    <% end %>
+
 
 
 

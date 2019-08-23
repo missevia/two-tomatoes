@@ -1,8 +1,17 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="review-page">
+  <h1 class = "review-title">Leave a review for <%= @booking.chef.name %> </h1>
 
-<%= simple_form_for [ @booking, @review ], url: booking_reviews_path(@booking), method: :post do |form| %>
-  <%= form.input :content, as: :text %>
-  <%= form.input :rating, collection: 1..5%>
-  <%= form.button :submit %>
-<% end %>
+
+  <div class="review-form">
+    <%= simple_form_for [ @booking, @review ], url: booking_reviews_path(@booking), method: :post do |form| %>
+    <div class="review-inputs">
+      <%= form.input :content, as: :text, label: false, placeholder: 'Share your thoughts about your dining experience', input_html: { class: "review-input"} %>
+      <%= form.input :rating, label: false, placeholder: 'Rate your chef (1 - 5 stars)', input_html: { class: "review-input"}%>
+    </div>
+    <div class="review-button">
+        <%= form.button :submit, "Leave a review!", class: 'btn-primary', id: 'review-button' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

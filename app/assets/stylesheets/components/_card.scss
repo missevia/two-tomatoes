@@ -48,20 +48,12 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-
-  @media (min-width: 100px) and (max-width: 575px) {
-    text-align: center;
-  }
 }
 
 .see-more-btn {
   display: flex;
   margin-right: 15px;
   margin-top: 60px;
-
-  @media (min-width: 100px) and (max-width: 575px) {
-    margin-right: 120px;
-  }
 }
 
 .card:hover {
@@ -71,26 +63,66 @@
 
 .rating {
   color: rgb(234, 112, 112);
-
-  @media (min-width: 100px) and (max-width: 575px) {
-    margin-left: 55px;
-  }
 }
 
 // Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
+@media (min-width: 100px) and (max-width: 320px) {
   .cards {
     grid-template-columns: 1fr;
   }
   .card {
     width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: 150px;
   }
+
+  .see-more-btn {
+    display: none;
+  }
+  .btn-mob {
+    width: 80px;
+    margin-left: 100px;
+    margin-bottom: 1px;
+  }
+
+  .avatar-show {
+    display: none;
+  }
+
+}
+
+
+// Smallest device
+@media (min-width: 300px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: 150px;
+  }
+
+  .see-more-btn {
+    display: none;
+  }
+  .btn-mob {
+    width: 80px;
+    margin-left: 100px;
+    margin-bottom: 1px;
+  }
+
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .cards {
     grid-template-columns: 1fr;
+  }
+  .btn-mob {
+    display: none;
   }
 
 }
@@ -100,6 +132,12 @@
   .cards {
     grid-template-columns: 1fr 1fr;
   }
+  .btn-mob {
+    display: none;
+  }
+  .card {
+    width: 360px;
+  }
 }
 
 // Large devices (desktops, 992px and up)
@@ -107,11 +145,19 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .btn-mob {
+    display: none;
+  }
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .btn-mob {
+    display: none;
   }
 }

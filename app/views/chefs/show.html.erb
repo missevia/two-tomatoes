@@ -2,7 +2,7 @@
 <div class="container-show">
   <div class="chef-user d-flex align-items-center flex-column mx-3">
     <img class="avatar-large" alt="avatar-large" src=" <%= @chef.user.image %> "/>
-    <% if current_user.chef != @chef %>
+    <% if !current_user || current_user.chef != @chef %>
       <%= link_to "Book", new_chef_booking_path(@chef), class: "btn btn-success rounded-pill mb-4" %>
     <% else %>
     <% end %>

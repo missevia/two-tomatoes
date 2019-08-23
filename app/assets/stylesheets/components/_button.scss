@@ -12,3 +12,14 @@
 .btn {
   text-align: center;
 }
+
+#home-page-btn {
+  background-color: rgb(234, 112, 112);
+  border-color: rgb(234, 112, 112);
+  padding: 10px;
+}
+
+#home-page-btn:hover {
+  text-decoration: none;
+  background-color: rgb(234, 130, 112);
+}

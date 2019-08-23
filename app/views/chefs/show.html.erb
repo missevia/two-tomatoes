@@ -2,11 +2,11 @@
 <div class="container-show">
   <div class="chef-user d-flex align-items-center flex-column mx-3">
     <img class="avatar-large" alt="avatar-large" src=" <%= @chef.user.image %> "/>
-    <%= link_to "Book", new_chef_booking_path(@chef), class: "btn btn-success rounded-pill mb-4" %>
+    <%= link_to "Book", new_chef_booking_path(@chef), class: "btn btn-outline-light btn-rounded btn-sm my-0 btn-search px-4" %>
   </div>
   <div class="container-profile-details">
-    <h3 class="ml-3 my-3">Hi I'm <%= @chef.name %></h3>
-    <p class="ml-3 my-3"> <%= @chef.description %></p>
+    <h4 class="ml-3 my-3">Hi I'm <%= @chef.name %></h4>
+    <p class="rating-text ml-3 my-3"> <%= @chef.description %></p>
     <br>
   <div class="reviews ml-3 my-3">
     <h4>My Reviews</h4>
@@ -15,13 +15,13 @@
         <% booking.reviews.each do |review|%>
         <div class="card-review">
           <div>
-            <img class="avatar-square" src="<%= review.user.image %>" alt="user image">
+            <img class="avatar-small" src="<%= review.user.image %>" alt="user image">
             <strong>Rating:</strong>
             <% review.rating.times do %>
              <i class="fa fa-star" aria-hidden="true" ></i>
             <% end %>
           </div>
-          <p> <%= review.content %> </p>
+          <p class="rating-text"> <%= review.content %> </p>
         </div>
         <% end %>
       <% end %>

@@ -1,14 +1,18 @@
 <div class="chef-index">
   <div id="search-bar">
-    <%= form_tag chefs_path, class: "form-inline md-form m-auto mb-4 chef-search" , method: :get do %>
-      <span><%= text_field_tag :query, params[:query], class: "form-control mr-sm-2" %><%= submit_tag "Search", name: nil, class: "btn btn-outline-warning btn-rounded btn-sm my-0"  %></span>
+    <%= form_tag chefs_path, class: "form-inline md-form m-auto mb-4 chef-search py-3" , method: :get do %>
+      <span class="d-flex"><%= text_field_tag :query, params[:query], class: "form-control mr-2" %><%= submit_tag "Search", name: nil, class: "btn btn-outline-warning btn-rounded btn-sm my-0 btn-search"  %></span>
     <% end %>
   </div>
+
+<% if @empty_results  %>
+<p class="empty-search-message">we don't have this cuisine at the moment. Check out our other chefs ❤️ </p>
+<% end %>
 
   <div class="cards" id="grid">
     <% @results.each do |result| %>
     <div class="card">
-    <img class="avatar mx-3 my-3" alt="avatar-large" src="<%= result.user.image %>"/>
+    <img class="avatar-show" alt="avatar-large" src="<%= result.user.image %>"/>
 
     <div class="card-details">
       <p><strong><%= result.name %></strong></p>
@@ -19,7 +23,7 @@
       <% end %>
       </div>
     </div>
-    <%= link_to "see more", chef_path(result), class: "nav-link align-self-end" %>
+    <%= link_to "profile", chef_path(result), class: "see-more-btn btn btn-outline-warning btn-rounded btn-sm" %>
     </div>
     <% end %>
   </div>

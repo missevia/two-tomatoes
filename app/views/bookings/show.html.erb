@@ -1,9 +1,8 @@
-<div class="container">
+<div class="container my-container">
   <div class="row">
     <div class="text-center">
       <h3> Thank you for booking <%= @booking.chef.name %> </h3>
       <hr>
-
         <div class="row">
           <div align ="right" class="col-md-6">
             <img src="<%= @booking.chef.user.image%>" class = avatar-large %>
@@ -33,5 +32,4 @@
               </div>
           </div>
         </div>
-
 <!--         <%= link_to "Leave a Review", new_booking_review_path(@booking) , class: "btn btn-success rounded-pill mb-4"%> -->

@@ -9,7 +9,73 @@
   align-items: center;
 }
 
+.my-bookings-title h4 {
+  font-family: lobster, cursive;
+  font-size: 33px;
+  color: #696969;
+  margin-bottom: 15px;
+}
+
+.profile-bookings-size h5 {
+  color: #696969;
+}
+
 #booking-card {
   padding: 10px;
   margin: 15px;
+}
+
+#booking-card a {
+  color: rgb(234, 112, 112);
+  text-decoration: none;
+}
+
+.user-profile {
+  display: flex;
+  justify-content: space-around;
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%), url('https://images.unsplash.com/photo-1535140728325-a4d3707eee61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2300&q=80');
+  background-repeat: none;
+  background-size: cover;
+}
+
+.profile-left-side {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  border-color: rgba(0, 0, 0, 0.3);
+  border-style: solid;
+  border-width: 0.6px;
+  margin-top: 90px;
+  height: 370px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  background-color: white;
+  border-radius: 8px;
+}
+
+.profile-right-side {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px;
+  border-color: rgba(0, 0, 0, 0.3);
+  border-style: solid;
+  border-width: 0.6px;
+  margin-top: 90px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  background-color: white;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+
+.profile-user-name h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(234, 112, 112);
+}
+
+
+
+.profile-bookings-size h5 {
+  font-size: 15px;
 }

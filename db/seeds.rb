@@ -98,6 +98,17 @@ justin = User.create!(
 
 puts 'Created Justin'
 
+puts 'Creating user "Justin\'s Mom". Email: mom@mail.com; pw: 654321...'
+
+justin_mom = User.create!(
+  name: "Justin\'s Mom",
+  email: "mom@mail.com",
+  password: "654321",
+  image: "/assets/mom.jpg"
+)
+
+puts 'Created Justin\'s Mom'
+
 puts 'Creating users "Lila", "Evia", "Ahmad" and "Moritz". For each user Email: NAME@mail.com; pw: 654321...'
 
 lila = User.create!(

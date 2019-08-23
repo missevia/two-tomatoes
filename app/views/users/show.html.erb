@@ -1,8 +1,27 @@
-<div class="my-bookings">
-  <h3><%= current_user.name %>'s bookings</h3>
-   <% @user.bookings.each do |booking| %>
-      <div class="card" id = "booking-card"> <%= link_to booking.chef.name + " (view)", booking_path(booking) %>
-      <img class="avatar mx-3 my-3" alt="avatar-large" src= <%= booking.chef.user.image %>> </div>
-    <% end %>
-</div>
 
+<div class="user-profile">
+  <div class="profile-left-side">
+    <div class = "profile-user-avatar">
+      <img class="avatar-very-large" alt="avatar-large" src= <%= @user.image %>>
+    </div>
+    <div class="profile-bookings-size">
+      <h5>
+          <%= pluralize current_user.bookings.size, "booking" %>
+        </h5>
+    </div>
+     <div class = "profile-user-name">
+    <h3><%= current_user.name %></h3>
+    </div>
+  </div>
+  <div class="profile-right-side">
+    <div class = "my-bookings-title">
+      <h4>My bookings</h4>
+      </div>
+       <% @user.bookings.each do |booking| %>
+      <div class="card" id = "booking-card">
+        <%= link_to booking.chef.name + " (view)", booking_path(booking) %>
+        <img class="avatar mx-3 my-3" alt="avatar-large" src= <%= booking.chef.user.image %>>
+      </div>
+    <% end %>
+  </div>
+</div>

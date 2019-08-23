@@ -1,0 +1,43 @@
+.confirmation-container {
+  display: flex;
+  background-color: white;
+  padding: 30px;
+  width: 550px;
+  margin: 0 auto;
+  margin-bottom: 35px;
+  border-radius: 7px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+.booking-show-page {
+   min-height: calc(100vh - 156px);
+   background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%), url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80');
+   background-size: cover;
+   background-repeat: none;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   padding-top: 60px;
+}
+
+.booking-show-title {
+  color: white;
+  font-family: lobster, cursive;
+  font-size: 45px;
+  padding-bottom: 15px;
+}
+
+.purple-details {
+  color: rgb(234, 112, 112);
+}
+
+#booking-show-btn {
+  background-color: rgb(234, 112, 112);
+  border-color: rgb(234, 112, 112);
+  padding: 15px;
+}
+
+#booking-show-btn:hover {
+  text-decoration: none;
+  background-color: rgb(234, 130, 112);
+}

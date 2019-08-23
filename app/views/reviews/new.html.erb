@@ -3,6 +3,6 @@
 
 <%= simple_form_for [ @booking, @review ], url: booking_reviews_path(@booking), method: :post do |form| %>
   <%= form.input :content, as: :text %>
-  <%= form.input :rating%>
+  <%= form.input :rating, collection: 1..5%>
   <%= form.button :submit %>
 <% end %>

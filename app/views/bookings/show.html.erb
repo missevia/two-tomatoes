@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="text-center">
-      <h3> All done so... stay tuned! </h3>
+      <h3> Thank you for booking <%= @booking.chef.name %> </h3>
       <hr>
 
         <div class="row">
@@ -26,10 +26,12 @@
                       <td><h4> <i class="fa fa-thumbs-up" aria-hidden="true"></i></h4></td>
                       <td><h4> &nbsp; The total price for your booking is £<%=@booking.chef.price %>. We hope you enjoy!</h4></td>
                     </tr>
+                    <tr>
+                      <td><h4> &nbsp; <%= link_to "Leave a Review", new_booking_review_path(@booking) , class: "btn btn-success rounded-pill mb-4"%> </h4></td>
                   </tbody>
                 </table>
               </div>
           </div>
         </div>
 
-        <%= link_to "Leave a Review", new_booking_review_path(@booking) , class: "btn btn-danger btn-lg"%>
+<!--         <%= link_to "Leave a Review", new_booking_review_path(@booking) , class: "btn btn-success rounded-pill mb-4"%> -->

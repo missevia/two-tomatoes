@@ -7,8 +7,8 @@ class ChefsController < ApplicationController
     if params[:query].present?
       @results = Chef.search_by_specialty(params[:query])
       if @results.empty?
-        @empty_results
         @results = Chef.all
+        @empty_results
       end
     else
       @results = Chef.all

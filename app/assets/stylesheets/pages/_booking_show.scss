@@ -7,6 +7,10 @@
   margin-bottom: 35px;
   border-radius: 7px;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+
+  @media (max-width: 768px) {
+  width: 342px;
+  }
 }
 
 .booking-show-page {
@@ -35,6 +39,11 @@
   background-color: rgb(234, 112, 112);
   border-color: rgb(234, 112, 112);
   padding: 15px;
+
+  @media (max-width: 768px) {
+  padding: 8px;
+  }
+
 }
 
 #booking-show-btn:hover {

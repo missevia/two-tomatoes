@@ -7,6 +7,7 @@
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
   width: 100%;
+
 }
 .footer-links {
   display: flex;
@@ -26,4 +27,9 @@
   color: #D23333;
 }
 
+.footer-copyright {
+  @media only screen and (max-width: 768px)  {
+  font-size: 11px;
+  }
+}
 

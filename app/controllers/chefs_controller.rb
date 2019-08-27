@@ -8,10 +8,10 @@ class ChefsController < ApplicationController
       @results = Chef.search_by_specialty(params[:query])
         if @results.empty?
           @empty_results = true
-          @results = Chef.all
+          @results = Chef.order(rating: :desc)
         end
     else
-      @results = Chef.all
+      @results = Chef.order(rating: :desc)
     end
   end
 

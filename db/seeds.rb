@@ -104,7 +104,7 @@ justin_mom = User.create!(
   name: "Justin\'s Mom",
   email: "mom@mail.com",
   password: "654321",
-  image: "/assets/mom.jpg"
+  image: "https://i.imgur.com/I3kr4lj.jpg"
 )
 
 puts 'Created Justin\'s Mom'

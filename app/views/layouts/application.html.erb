@@ -20,7 +20,7 @@
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <div class="brand-container">
         <a class="navbar-brand angrytext" href="<%= root_path %>">
-           <img src="/assets/new_tt_logo.png" alt="logo" />
+           <%= image_tag "new_tt_logo.png"%>
         </a>
       <!--   <p>TwoTomatos</p> -->
       </div>
@@ -65,9 +65,7 @@
 
     <%= yield %>
 
-    <% if params[:controller] == "chefs" && params[:action] == "show" %>
-      <div></div>
-    <% else %>
+
 <!--       <p class="notice notice-color"><%= notice %></p> -->
       <!-- <p class="alert"><%= alert %></p> -->
       <%= javascript_include_tag 'application' %>
@@ -82,7 +80,7 @@
           This website was made with <i class="fas fa-heart"></i> by Ecopal Team
         </div>
       </div>
-    <% end %>
+
 
 
 

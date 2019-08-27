@@ -1,7 +1,7 @@
 <div class="chef-index">
   <div id="search-bar">
     <%= form_tag chefs_path, class: "form-inline md-form m-auto mb-4 chef-search py-3" , method: :get do %>
-      <span class="d-flex"><%= text_field_tag :query, params[:query], class: "form-control mr-2" %><%= submit_tag "Search", name: nil, class: "btn btn-outline-warning btn-rounded btn-sm my-0 btn-search"  %></span>
+      <span class="d-flex"><%= text_field_tag :query, params[:query], class: "form-control mr-2" %><%= submit_tag "search", name: nil, class: "btn btn-outline-warning btn-rounded btn-sm my-0 btn-search"  %></span>
     <% end %>
   </div>
 

@@ -17,8 +17,10 @@
           <div>
             <img class="avatar-small" src="<%= review.user.image %>" alt="user image">
             <strong>Rating:</strong>
+            <% if review.rating %>
             <% review.rating.times do %>
              <i class="fa fa-star" aria-hidden="true" ></i>
+            <% end %>
             <% end %>
           </div>
           <p class="rating-text"> <%= review.content %> </p>
